@@ -12,9 +12,8 @@ export class HomeComponent implements OnInit {
     get expiryTime(): Date {
         return new Date(this.currentUser.access_token.token_data.expires * 1000)
     }
-
-    get expiryMessage(): string {
-        return new Date() < this.expiryTime ? `${this.expiryTime}` : `Expired: ${this.expiryTime}`
+    get expired() : boolean {
+        return new Date() > this.expiryTime
     }
 
     constructor(private userService: UserService) {
@@ -32,11 +31,11 @@ export class HomeComponent implements OnInit {
         })
     }
 
-    deleteUser(id: number) {
-        this.userService.delete(id).pipe(first()).subscribe(() => { 
-            this.loadAllUsers() 
-        });
-    }
+    // deleteUser(id: number) {
+    //     this.userService.delete(id).pipe(first()).subscribe(() => { 
+    //         this.loadAllUsers() 
+    //     });
+    // }
 
     private loadAllUsers() {
         // this.userService.getAll().pipe(first()).subscribe(users => { 

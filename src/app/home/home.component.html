@@ -1,5 +1,7 @@
 ﻿<h1>Hi {{currentUser.username}}!</h1>
-<p>You're logged in to LEXI LABS Cloud until {{expiryMessage}}</p>
+<p>
+    <span *ngIf="expired == false">You're </span>
+    <span style="color: red;" *ngIf="expired">You were </span>logged in to LEXI LABS Cloud until {{expiryTime}}</p>
 <h3>All pages of Peter Rabbit:</h3>
 <ul>
     <li *ngFor="let page of pages">
