@@ -17,14 +17,16 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';;
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
+;
+import { GraphQLModule } from './graphql.module'
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
         routing,
-        BrowserAnimationsModule    ],
+        BrowserAnimationsModule ,
+        GraphQLModule   ],
     declarations: [
         AppComponent,
         AlertComponent,
