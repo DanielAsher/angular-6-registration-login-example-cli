@@ -27,7 +27,7 @@ export class AuthenticationService {
                         "app_id":"",
                         "provider":"realm", // Note provider is 'realm'
                         "data": user.refresh_token.token, // Token from previous response
-                        "path":"books" // Path of the realm you want to access, e.g. '/user-id/tickets
+                        "path":"test-gql" // Path of the realm you want to access, e.g. '/user-id/tickets
                     }
                     )
                 }),

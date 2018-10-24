@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://34.243.104.109'
+  apiUrl: 'https://storysmarties.us1.cloud.realm.io'
 };
 
 /*

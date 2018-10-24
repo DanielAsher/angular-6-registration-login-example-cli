@@ -1,20 +1,35 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { User } from '../_models';
+import { User, Page, PageQuery } from '../_models';
 import { UserService } from '../_services';
 
 @Component({templateUrl: 'home.component.html'})
 export class HomeComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
+    pages: [Page];
+    get expiryTime(): Date {
+        return new Date(this.currentUser.access_token.token_data.expires * 1000)
+    }
+
+    get expiryMessage(): string {
+        return new Date() < this.expiryTime ? `${this.expiryTime}` : `Expired: ${this.expiryTime}`
+    }
 
     constructor(private userService: UserService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     }
 
     ngOnInit() {
-        this.loadAllUsers();
+        // this.loadAllUsers();
+        this.getGraphQLAdmin()
+    }
+
+    getGraphQLAdmin() {
+        this.userService.getGraphQLAdmin().pipe(first()).subscribe( response => {
+            this.pages = response.data.pages;
+        })
     }
 
     deleteUser(id: number) {
