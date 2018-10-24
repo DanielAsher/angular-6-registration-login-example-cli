@@ -15,10 +15,11 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
-import { RegisterComponent } from './register';;
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-;
-import { GraphQLModule } from './graphql.module'
+import { RegisterComponent } from './register';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GraphQLModule } from './graphql.module';
+import { PagesComponent } from './pages/pages.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -33,7 +34,8 @@ import { GraphQLModule } from './graphql.module'
         HomeComponent,
         LoginComponent,
         RegisterComponent
-    ],
+,
+        PagesComponent    ],
     providers: [
         AuthGuard,
         AlertService,
