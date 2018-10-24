@@ -23,8 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
-,
+        routing,
         BrowserAnimationsModule    ],
     declarations: [
         AppComponent,
@@ -42,7 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
         // provider used to create fake backend
-        fakeBackendProvider
+        // fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })
