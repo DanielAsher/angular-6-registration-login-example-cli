@@ -3,6 +3,7 @@
     <span *ngIf="expired == false">You're </span>
     <span style="color: red;" *ngIf="expired">You were </span>logged in to LEXI LABS Cloud until {{expiryTime}}</p>
 <h3>All pages of Peter Rabbit:</h3>
+<app-pages></app-pages>
 <ul>
     <li *ngFor="let page of pages">
         {{page.text}} ({{page.uuid}})
