@@ -4,10 +4,10 @@
     <span style="color: red;" *ngIf="expired">You were </span>logged in to LEXI LABS Cloud until {{expiryTime}}</p>
 <h3>All pages of Peter Rabbit:</h3>
 <app-pages></app-pages>
-<ul>
+<!-- <ul>
     <li *ngFor="let page of pages">
         {{page.text}} ({{page.uuid}})
-        <!-- - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a> -->
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
     </li>
-</ul>
+</ul> -->
 <p><a [routerLink]="['/login']">Logout</a></p>

@@ -1,3 +1,8 @@
-<p>
-  pages works!
-</p>
+<h3>
+  Apollo client graphQL results
+</h3>
+<ul>
+  <li *ngFor='let page of pages'>
+    {{page.text}} {{page.uuid}}
+  </li>
+</ul>
