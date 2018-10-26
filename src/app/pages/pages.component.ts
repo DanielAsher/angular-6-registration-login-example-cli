@@ -14,7 +14,7 @@ const PagesOfPeterRabbit = gql`
   }
 `
 const PagesOfPeterRabbitSub = gql`
-  subscription PagesOfPeterRabbit {
+  subscription PagesOfPeterRabbitSub {
     pages(query: "") {
       uuid
       text
@@ -54,18 +54,20 @@ export class PagesComponent implements OnInit, OnDestroy {
           query: PagesOfPeterRabbit
         })
         
-    this.pages$ = this.pagesQuery
-        .valueChanges
+    this.pages$ = this.pagesQuery.valueChanges
         .pipe(map(({data}) => (data as any).pages))
 
     this.pagesQuery.subscribeToMore({
       document: PagesOfPeterRabbitSub,
-      updateQuery: (prev, { subscriptionData}) => {
+      updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) {
           return prev
         }
 
         const newPages = subscriptionData.data.pages
+        if (newPages === null) {
+          return prev
+        }
         return {
           ...prev,
           ...newPages
